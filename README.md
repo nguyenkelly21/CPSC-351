@@ -3,7 +3,6 @@ Names: Kelly Nguyen, Brandon Nolan, Drashti Mehta
 Emails: nguyenkelly21@csu.fullerton.edu, brandonnolan@csu.fullerton.edu, dumehta@csu.fullerton.edu
 
 How to execute program: 
-Contributation:
 
 Contributation: 
 
