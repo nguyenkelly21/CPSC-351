@@ -35,7 +35,7 @@ void fetch_weather_serial(char *filename) {
             exit(EXIT_FAILURE);
         } else if (pid == 0) {
             // Child process
-            execlp("/usr/bin/curl", "curl", "-o", "file1.json", 
+            execlp("/usr/bin/curl", "curl", "-o", "weather.json", 
                    "https://api.open-meteo.com/v1/forecast?latitude=52.520000&longitude=13.410000&current_weather=True", 
                    latitude, longitude, NULL);
             perror("Error executing execlp");
