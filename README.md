@@ -3,9 +3,12 @@ Names: Kelly Nguyen, Brandon Nolan, Drashti Mehta
 Emails: nguyenkelly21@csu.fullerton.edu, brandonnolan@csu.fullerton.edu, dumehta@csu.fullerton.edu
 
 Contributation: 
-  Kelly Nguyen - worked on part 2 overview, worked on readme file
-  Brandon Nolan - worded on part 1 overview, worked on part 2 overview
-  Drashti Mehta - worked on part 2 overview, worked on bonus
+
+Kelly Nguyen - worked on part 2 overview, worked on readme file
+
+Brandon Nolan - worded on part 1 overview, worked on part 2 overview
+
+Drashti Mehta - worked on part 2 overview, worked on bonus
 
 All team members are familiar with all functionality in the assignment.
 
