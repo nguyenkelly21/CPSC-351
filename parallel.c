@@ -28,28 +28,28 @@ void fetch_weather_parallel(char *filename) {
 
     char latitude[20], longitude[20];
     int child_count = 0;
-
+    int i = 1;
     while (fscanf(file, "%s %s", latitude, longitude) == 2) {
         pid_t pid = fork();
         if (pid == -1) {
             perror("Error forking process");
             exit(EXIT_FAILURE);
         } else if (pid == 0) {
-            // Child process
-            execlp("/usr/bin/curl", "curl", "-o", "weather.json", 
-                   "https://api.open-meteo.com/v1/forecast?latitude=52.520000&longitude=13.140000&current_weather=True", 
-                   latitude, longitude, NULL);
+           // Child process
+            char outputfilename[200];
+            sprintf(outputfilename, "file_parallel%d.json", i);
+            char url[200];
+            sprintf(url, "https://api.open-meteo.com/v1/forecast?latitude=%s&longitude=%s&current_weather=True", latitude, longitude);
+            execlp("/usr/bin/curl", "curl", "-o", outputfilename, url, NULL);          
             perror("Error executing execlp");
             exit(EXIT_FAILURE);
         } else {
-            
             child_count++;
+            i++;
         }
     }
 
-    fclose(file);
 
-   
     while (child_count > 0) {
         wait(NULL);
         child_count--;
