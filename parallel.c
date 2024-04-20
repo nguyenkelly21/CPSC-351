@@ -12,10 +12,8 @@ int main(int argc, char *argv[]) {
         printf("Usage: %s <locations_file>\n", argv[0]);
         exit(EXIT_FAILURE);
     }
-
     char *filename = argv[1];
     fetch_weather_parallel(filename);
-
     return 0;
 }
 
@@ -25,7 +23,6 @@ void fetch_weather_parallel(char *filename) {
         perror("Error opening file");
         exit(EXIT_FAILURE);
     }
-
     char latitude[20], longitude[20];
     int child_count = 0;
     int i = 1;
@@ -48,8 +45,6 @@ void fetch_weather_parallel(char *filename) {
             i++;
         }
     }
-
-
     while (child_count > 0) {
         wait(NULL);
         child_count--;
