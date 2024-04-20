@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <sys/wait.h>
 
+
 #define MAX_LOCATIONS 100
 
 void fetch_weather_serial(char *filename);
@@ -27,22 +28,27 @@ void fetch_weather_serial(char *filename) {
     }
 
     char latitude[20], longitude[20];
-
+    int i = 1;
     while (fscanf(file, "%s %s", latitude, longitude) == 2) {
         pid_t pid = fork();
+        printf("pid: %d", pid);
         if (pid == -1) {
             perror("Error forking process");
             exit(EXIT_FAILURE);
         } else if (pid == 0) {
             // Child process
-            execlp("/usr/bin/curl", "curl", "-o", "weather.json", 
-                   "https://api.open-meteo.com/v1/forecast?latitude=52.520000&longitude=13.410000&current_weather=True", 
-                   latitude, longitude, NULL);
+            char outputfilename[200];
+            sprintf(outputfilename, "file_serial%d.json", i);
+            char url[200];
+            sprintf(url, "https://api.open-meteo.com/v1/forecast?latitude=%s&longitude=%s&current_weather=True", latitude, longitude);
+            execlp("/usr/bin/curl", "curl", "-o", outputfilename, url, NULL);
+                   
             perror("Error executing execlp");
             exit(EXIT_FAILURE);
         } else {
             // Parent process
             wait(NULL); // Wait for child to finish
+            i++;
         }
     }
 
