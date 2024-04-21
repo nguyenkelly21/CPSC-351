@@ -31,14 +31,14 @@ How to execute:
 Executation Times:
 
 Serial Fetcher 
-  Real Time = 0m0.002s
-  User Time = 0m0.001s
-  Sys Time = 0m0.000s
+  Real Time = 0m3.142s
+  User Time = 0m0.073s
+  Sys Time = 0m0.026s
                  
 Parallel Fetcher
-  Real Time = 0m0.003s
-  User Time = 0m0.002s
-  Sys Time = 0m0.001s
+  Real Time = 0m0.669s
+  User Time = 0m0.083s
+  Sys Time = 0m0.042s
 
 Answers to questions: 
   1. In the output of time, what is the difference between real, user, and sys times?
@@ -47,7 +47,7 @@ Real time is the wall clock time. The user time is measured by the how long the 
 
   2. Which is longer: user time or sys time? Use your knowledge to explain why.
 
-The user time was longer for serial fetcher and parallel fetcher. For serial fetcher, the user time was 0m0.002s while sys time was 0m0.001s. For parallel fetcher, the user time was 0m0.001s while sys time was 0m0.000s. The user time is longer because most of the time is spent in the user-mode code to do the tasks and execute the process.
+The user time was longer for serial fetcher and parallel fetcher. For serial fetcher, the user time was 0m0.073s while sys time was 0m0.026s. For parallel fetcher, the user time was 0m0.083s while sys time was 0m0.042s. The user time is longer because most of the time is spent in the user-mode code to do the tasks and execute the process.
 
   3. When fetching all of the locations in the file, which fetcher finishes faster? Why do you think that is?
 
